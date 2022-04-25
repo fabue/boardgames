@@ -2,8 +2,83 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
+    <style>
+      img {
+        width: 50%;
+      }
+      #intro {
+        width: 1000px;
+        color: red;
+      }
+      #thumbnail-container {
+        display: flex;
+      }
+      .thumbnail {
+        width: 10%;
+        margin: 10px;
+      }
+      .game-description {
+        width: 1000px;
+        color: blue;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    
+    <script>
+      const images = [
+        "https://openaccess-cdn.clevelandart.org/1996.401/1996.401_web.jpg",
+        "https://cf.geekdo-images.com/sxqCDDE8P_ThMk1EfHtgsA__imagepage/img/q1nb-EHRdjtdTgUp2x-z-vX1N_A=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6802203.jpg",
+        "https://live.staticflickr.com/3211/2709983277_dbbc9e0bfe_b.jpg",
+        "https://openaccess-cdn.clevelandart.org/1917.62/1917.62_web.jpg"
+      ]
+
+      function createThumbnail(gameNumber, src){
+        const header1 = `<h1>${gameNumber}</h1>`
+        const imgTag = `<img src="${src}"/>`
+        const divTag = `<div class="thumbnail">${header1} ${imgTag}</div>`  
+        return divTag
+      }
+
+      window.addEventListener('load', event => {
+        for (let i = 0; i < images.length; i++) {
+          const thumbnail = createThumbnail(i + 1, images[i])
+          $("#thumbnail-container").append(thumbnail);
+        }
+      });
+    </script>
+
     <title>Brettspiele</title>
   </head>
   <body>
+    <h1>Meine liebsten Brettspiele</h1>
+    <p id="intro">Folgende Spiele sind für mich aktuell die interessantesten  und kurzweiligsten</p>
+
+    <div id="thumbnail-container"></div>
+
+    <h2>
+      <a href="https://boardgamegeek.com/boardgame/6472/game-thrones">Game of Thrones</a>
+    </h2>
+    <p class="game-description">
+      War and chaos are engulfing the lands of Westeros. The greatå Houses are vying for control of the Iron Throne using the old tools of intrigue and war. Yet while the war for Westeros rages, grave dangers gather in the cold North, and an ancient enemy is gaining momentum in the distant East.
+    </p>
+    <img src="https://openaccess-cdn.clevelandart.org/1996.401/1996.401_web.jpg"/>
+
+    <h2>
+      <a href="https://boardgamegeek.com/image/173519/pickomino">Heckmeck</a>
+    </h2>
+    <p class="game-description">
+      In Pickomino, two to seven players, ages 8 and up try to obtain fried worms for their chickens, so that they don't go hungry. Of course, anyone who doesn't manage to grab a worm off of the grill can help himself to those of his opponents. This fast-paced game by Reiner Knizia is, like Hick Hack im Gackelwack, a gambling game in the finest chicken tradition."
+    </p>
+    <img src="https://live.staticflickr.com/3211/2709983277_dbbc9e0bfe_b.jpg"/>
+
+    <h2>
+      <a href="https://boardgamegeek.com/boardgame/167791/terraforming-mars">Terraforming Mars</a>
+    </h2>
+    <p class="game-description">
+      In the 2400s, mankind begins to terraform the planet Mars. Giant corporations, sponsored by the World Government on Earth, initiate huge projects to raise the temperature, the oxygen level, and the ocean coverage until the environment is habitable. In Terraforming Mars, you play one of those corporations and work together in the terraforming process, but compete for getting victory points that are awarded not only for your contribution to the terraforming, but also for advancing human infrastructure throughout the solar system, and doing other commendable things.
+    </p>
+    <img src="https://openaccess-cdn.clevelandart.org/1917.62/1917.62_web.jpg"/>
   </body>
 </html>
